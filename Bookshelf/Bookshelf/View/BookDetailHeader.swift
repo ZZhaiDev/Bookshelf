@@ -9,9 +9,36 @@
 import UIKit
 
 class BookDetailHeader: UIView {
+    
+    var dataSource: BookDetail? {
+        didSet {
+            guard let dataSource = dataSource else { return }
+            bookTitle.text = dataSource.title
+            bookAuthor.text = dataSource.authors
+            bookRating.text = "number of rating: \(dataSource.rating)"
+            bookLanguage.text = dataSource.language
+            bookYear.text = dataSource.year
+            UIImage.asyncFrom(url: URL(string: dataSource.image)!, { (result) in
+                switch result {
+                case .error(let error):
+                    print(error.localizedDescription)
+                case .success(let image):
+                    DispatchQueue.main.async {
+                        self.bookImage.image = image
+                    }
+                }
+            })
+        }
+    }
+    
     @IBOutlet weak var bgImage: UIImageView!
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var bookTitle: UILabel!
+    @IBOutlet weak var bookRating: UILabel!
+    @IBOutlet weak var bookAuthor: UILabel!
+    @IBOutlet weak var bookLanguage: UILabel!
+    @IBOutlet weak var bookYear: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
