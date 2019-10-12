@@ -16,6 +16,9 @@
 		3823C8722352321600B30BC3 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823C8712352321600B30BC3 /* UIViewExtensions.swift */; };
 		3823C875235232E600B30BC3 /* BookDetailDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823C873235232E600B30BC3 /* BookDetailDescriptionCell.swift */; };
 		3823C876235232E600B30BC3 /* BookDetailDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3823C874235232E600B30BC3 /* BookDetailDescriptionCell.xib */; };
+		3823C8782352496300B30BC3 /* WebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823C8772352496300B30BC3 /* WebController.swift */; };
+		3823C8832352592900B30BC3 /* TakeNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823C8812352592900B30BC3 /* TakeNoteController.swift */; };
+		3823C8842352592900B30BC3 /* TakeNoteController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3823C8822352592900B30BC3 /* TakeNoteController.xib */; };
 		382D4EFA2351528800DD7BFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382D4EF92351528800DD7BFB /* AppDelegate.swift */; };
 		382D4EFC2351528800DD7BFB /* NewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382D4EFB2351528800DD7BFB /* NewController.swift */; };
 		382D4EFF2351528800DD7BFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 382D4EFD2351528800DD7BFB /* Main.storyboard */; };
@@ -65,6 +68,9 @@
 		3823C8712352321600B30BC3 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		3823C873235232E600B30BC3 /* BookDetailDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailDescriptionCell.swift; sourceTree = "<group>"; };
 		3823C874235232E600B30BC3 /* BookDetailDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookDetailDescriptionCell.xib; sourceTree = "<group>"; };
+		3823C8772352496300B30BC3 /* WebController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebController.swift; sourceTree = "<group>"; };
+		3823C8812352592900B30BC3 /* TakeNoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeNoteController.swift; sourceTree = "<group>"; };
+		3823C8822352592900B30BC3 /* TakeNoteController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TakeNoteController.xib; sourceTree = "<group>"; };
 		382D4EF62351528800DD7BFB /* Bookshelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookshelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		382D4EF92351528800DD7BFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		382D4EFB2351528800DD7BFB /* NewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewController.swift; sourceTree = "<group>"; };
@@ -218,10 +224,13 @@
 		382D4F3B235157B700DD7BFB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3823C8772352496300B30BC3 /* WebController.swift */,
 				382D4F272351540D00DD7BFB /* New.storyboard */,
 				382D4EFB2351528800DD7BFB /* NewController.swift */,
 				382D4F2A2351542B00DD7BFB /* Search.storyboard */,
 				382D4F47235166CF00DD7BFB /* BookDetailController.swift */,
+				3823C8812352592900B30BC3 /* TakeNoteController.swift */,
+				3823C8822352592900B30BC3 /* TakeNoteController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -347,6 +356,7 @@
 				380B291F235181110096906C /* BookDetailHeader.xib in Resources */,
 				382D4F012351528900DD7BFB /* Assets.xcassets in Resources */,
 				382D4EFF2351528800DD7BFB /* Main.storyboard in Resources */,
+				3823C8842352592900B30BC3 /* TakeNoteController.xib in Resources */,
 				3823C876235232E600B30BC3 /* BookDetailDescriptionCell.xib in Resources */,
 				382D4F292351540D00DD7BFB /* New.storyboard in Resources */,
 				382D4F2B2351542B00DD7BFB /* Search.storyboard in Resources */,
@@ -389,8 +399,10 @@
 				380B291B23517D550096906C /* ParallaxHeader.swift in Sources */,
 				382D4EFA2351528800DD7BFB /* AppDelegate.swift in Sources */,
 				382D4F4C23516C8B00DD7BFB /* UIViewControllerExtension.swift in Sources */,
+				3823C8832352592900B30BC3 /* TakeNoteController.swift in Sources */,
 				382D4F34235154B200DD7BFB /* Service.swift in Sources */,
 				382D4F42235158D600DD7BFB /* BaseTableViewCell.swift in Sources */,
+				3823C8782352496300B30BC3 /* WebController.swift in Sources */,
 				380B291D23517D550096906C /* UIScrollView+ParallaxHeader.swift in Sources */,
 				380B2921235181280096906C /* BookDetailHeader.swift in Sources */,
 				382D4F3D2351582E00DD7BFB /* UINavigationControllerExtension.swift in Sources */,

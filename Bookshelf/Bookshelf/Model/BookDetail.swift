@@ -27,7 +27,7 @@ import Foundation
     
     @objc let price: String
     @objc let image: String
-    @objc let url: String
+    @objc let url: URL
 //    @objc let pdf: BookDetailPdf
 }
 

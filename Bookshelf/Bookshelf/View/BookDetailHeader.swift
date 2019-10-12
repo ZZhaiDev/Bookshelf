@@ -44,6 +44,12 @@ class BookDetailHeader: UIView {
         super.awakeFromNib()
         bgView.layer.cornerRadius = 10
         bgView.layer.masksToBounds = true
+        
+        bookLanguage.layer.cornerRadius = 5
+        bookLanguage.layer.masksToBounds = true
+        
+        bookYear.layer.cornerRadius = 5
+        bookYear.layer.masksToBounds = true
     }
     
     static func bookDetailHeader() -> BookDetailHeader {
