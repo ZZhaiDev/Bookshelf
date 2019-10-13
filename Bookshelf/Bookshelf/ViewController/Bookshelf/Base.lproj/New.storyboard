@@ -100,8 +100,8 @@
         <!--New-->
         <scene sceneID="MZr-ZK-h3V">
             <objects>
-                <navigationController id="M6a-2O-emk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="New" id="ma9-sh-Iel"/>
+                <navigationController id="M6a-2O-emk" customClass="CustomNavigationController" customModule="Bookshelf" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="New" image="tab_houseHL" selectedImage="tab_house" id="ma9-sh-Iel"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GWI-3r-PfE">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -112,7 +112,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OZd-rg-vZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="-588"/>
+            <point key="canvasLocation" x="324" y="-645"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_house" width="24" height="24"/>
+        <image name="tab_houseHL" width="24" height="24"/>
+    </resources>
 </document>

@@ -8,11 +8,6 @@
 
 import Foundation
 
-
-//protocol Requests {
-//    var url: URL { get }
-//}
-
 protocol Service {
     func get(url: URL, completion: @escaping (Result<Data>) -> Void)
 }

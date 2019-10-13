@@ -21,7 +21,7 @@ class TakeNoteController: UIViewController {
     weak var delegate: takeNoteDelegate?
     
     @IBOutlet weak var textView: UITextView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
@@ -38,7 +38,6 @@ class TakeNoteController: UIViewController {
         }
         delegate?.didSavedNote(note: textView.text)
         self.navigationController?.popViewController(animated: true)
-        
     }
 
 }

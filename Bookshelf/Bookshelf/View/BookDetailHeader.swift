@@ -14,7 +14,7 @@ class BookDetailHeader: UIView {
         didSet {
             guard let dataSource = dataSource else { return }
             bookTitle.text = dataSource.title
-            bookAuthor.text = dataSource.authors
+            bookAuthor.text = "author: \(dataSource.authors)"
             bookRating.text = "number of rating: \(dataSource.rating)"
             bookLanguage.text = dataSource.language
             bookYear.text = dataSource.year

@@ -16,12 +16,15 @@ class BookCell: BaseTableViewCell {
             bookTitle.text = dataSource.title
             bookSubtitle.text = dataSource.subtitle
             bookPrice.text = dataSource.price
+            bookImageView?.addSubview(spinnerView)
+            spinnerView.fillSuperview()
             UIImage.asyncFrom(url: dataSource.image, { (result) in
                 switch result {
                 case .error(let error):
                     print(error.localizedDescription)
                 case .success(let image):
                     DispatchQueue.main.async {
+                        self.spinnerView.removeFromSuperview()
                         self.bookImageView.image = image
                     }
                 }
@@ -39,9 +42,18 @@ class BookCell: BaseTableViewCell {
         return 150
     }
     
+    var spinnerView: UIView = {
+        let spin = UIView()
+        spin.backgroundColor = UIColor.white
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spin.center
+        spin.addSubview(ai)
+        return spin
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         bookImageView.contentMode = .scaleAspectFill
         bookImageView.clipsToBounds = true
     }

@@ -12,10 +12,6 @@ enum UIImageError: Error {
     case invalidData
 }
 
-//struct ImageRequest: Requests {
-//    let url: URL
-//}
-
 extension UIImage {
     /// Loads an UIImage from internet asynchronously
     static func asyncFrom(url: URL, service: Service = NetworkService(), _ completion: @escaping (Result<UIImage>) -> Void) {

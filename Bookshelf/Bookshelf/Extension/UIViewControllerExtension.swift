@@ -32,14 +32,17 @@ extension UIViewController {
     }
     
     func normalNavigationBar() {
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        self.navigationController?.navigationBar.shadowImage = nil
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.view.backgroundColor = .lightRed
-//        self.navigationController?.navigationBar.barTintColor = .lightRed
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.barTintColor = .lightRed
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
+    
     
     func startLoading(onView : UIView) {
         let spinnerView = UIView.init(frame: onView.bounds)

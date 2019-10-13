@@ -41,6 +41,8 @@
 		382D4F4423515CD600DD7BFB /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382D4F4323515CD600DD7BFB /* BookCell.swift */; };
 		382D4F49235166CF00DD7BFB /* BookDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382D4F47235166CF00DD7BFB /* BookDetailController.swift */; };
 		382D4F4C23516C8B00DD7BFB /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382D4F4B23516C8B00DD7BFB /* UIViewControllerExtension.swift */; };
+		387CB3E12353990400B88DBA /* LoadMoreControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387CB3E02353990400B88DBA /* LoadMoreControl.swift */; };
+		387CB3E32353BE2F00B88DBA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387CB3E22353BE2F00B88DBA /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		382D4F4323515CD600DD7BFB /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		382D4F47235166CF00DD7BFB /* BookDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailController.swift; sourceTree = "<group>"; };
 		382D4F4B23516C8B00DD7BFB /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		387CB3E02353990400B88DBA /* LoadMoreControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreControl.swift; sourceTree = "<group>"; };
+		387CB3E22353BE2F00B88DBA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +225,8 @@
 				382D4F3E2351587700DD7BFB /* UIColor-theme.swift */,
 				382D4F4B23516C8B00DD7BFB /* UIViewControllerExtension.swift */,
 				3823C8712352321600B30BC3 /* UIViewExtensions.swift */,
+				387CB3E02353990400B88DBA /* LoadMoreControl.swift */,
+				387CB3E22353BE2F00B88DBA /* Constant.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -399,11 +405,13 @@
 				382D4F32235154B200DD7BFB /* ChallengeAPI.swift in Sources */,
 				380B29232351844B0096906C /* BookDetail.swift in Sources */,
 				382D4F3F2351587700DD7BFB /* UIColor-theme.swift in Sources */,
+				387CB3E32353BE2F00B88DBA /* Constant.swift in Sources */,
 				380B291C23517D550096906C /* ParallaxHeaderMode.swift in Sources */,
 				382D4F372351550B00DD7BFB /* Book.swift in Sources */,
 				382D4F49235166CF00DD7BFB /* BookDetailController.swift in Sources */,
 				3823C8722352321600B30BC3 /* UIViewExtensions.swift in Sources */,
 				380B291B23517D550096906C /* ParallaxHeader.swift in Sources */,
+				387CB3E12353990400B88DBA /* LoadMoreControl.swift in Sources */,
 				382D4EFA2351528800DD7BFB /* AppDelegate.swift in Sources */,
 				382D4F4C23516C8B00DD7BFB /* UIViewControllerExtension.swift in Sources */,
 				3823C8832352592900B30BC3 /* TakeNoteController.swift in Sources */,

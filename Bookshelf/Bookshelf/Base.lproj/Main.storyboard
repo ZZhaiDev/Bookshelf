@@ -17,6 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="1" green="0.23998847849999999" blue="0.12567881710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="gjU-af-gcP" kind="relationship" relationship="viewControllers" id="ZrW-Xz-647"/>
@@ -25,7 +26,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIS-AA-8Pn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="274" y="-406"/>
+            <point key="canvasLocation" x="545" y="-716"/>
         </scene>
         <!--New-->
         <scene sceneID="YSA-Cf-A0u">
@@ -35,7 +36,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dp2-qb-CMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="-615"/>
+            <point key="canvasLocation" x="1188" y="-827"/>
         </scene>
         <!--Search-->
         <scene sceneID="Aoq-m6-6lB">
@@ -45,7 +46,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tan-LX-ddN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="950" y="-212"/>
+            <point key="canvasLocation" x="1254" y="-468"/>
         </scene>
     </scenes>
 </document>

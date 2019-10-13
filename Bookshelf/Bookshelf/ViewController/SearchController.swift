@@ -7,51 +7,16 @@
 //
 
 import UIKit
-
-extension SearchController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        type = .normal
-        let searchBar = searchController.searchBar
-        if let text = searchBar.text, text != "" {
-            ChallengeAPI().getSearchResult(query: text, page: 1) { (result) in
-                switch result {
-                case .error(let err):
-                    print(err)
-                    self.dataSouce.removeAll()
-                    self.tableView.reloadData()
-                case .success(let books):
-                    self.dataSouce.removeAll()
-                    self.dataSouce = books
-                    self.tableView.reloadData()
-                }
-            }
-        } else {
-            self.dataSouce.removeAll()
-            self.tableView.reloadData()
-        }
-    }
-}
-
-extension SearchController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-//        let category = Candy.Category(rawValue:
-//            searchBar.scopeButtonTitles![selectedScope])
-//        filterContentForSearchText(searchBar.text!, category: category)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        type = .detail
-        self.tableView.reloadData()
-    }
-}
-
-
 private let cellId = "cellId"
 
 class SearchController: UITableViewController {
     
     var dataSouce = [Book]()
     var type: CellType = .normal
+    
+    fileprivate var currentPage = 1
+    fileprivate var searchText = ""
+    fileprivate var loadMoreView: LoadMoreControl!
     
     enum CellType: Int {
         case normal = 0
@@ -79,14 +44,66 @@ class SearchController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Search"
-        //prevent black screen
-        self.definesPresentationContext = true
+        self.definesPresentationContext = true                                      //prevent black screen
         navigationItem.searchController = searchController
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        
+        loadMoreView = LoadMoreControl(scrollView: tableView, spacingFromLastCell: 10, indicatorHeight: 60)
+        loadMoreView.delegate = self
+    }
+
+    
+    fileprivate func makeAPICall() {
+        if searchText != "" {
+            ChallengeAPI().getSearchResult(query: searchText, page: currentPage) { (result) in
+                switch result {
+                case .error(let err):
+                    print(err)
+                case .success(let books):
+                    if self.currentPage == 1 {
+                        self.dataSouce.removeAll()
+                        self.dataSouce = books
+                        self.tableView.reloadData()
+                    } else {
+                        self.loadMoreView.stop()
+                        let lastDataSourceCount = self.dataSouce.count - 1
+                        var indexPaths = [IndexPath]()
+                        books.forEach({ (book) in
+                            indexPaths.append(IndexPath(row: self.dataSouce.count, section: 0))
+                            self.dataSouce.append(book)
+                        })
+                        self.tableView.insertRows(at: indexPaths, with: .middle)
+                        if self.dataSouce.count > lastDataSourceCount + 2 {
+                            self.tableView.scrollToRow(at: IndexPath(row: lastDataSourceCount + 2, section: 0), at: .bottom, animated: true)
+                        }
+                    }
+                }
+            }
+        } else {
+            self.dataSouce.removeAll()
+            self.tableView.reloadData()
+        }
+    }
+}
+
+
+extension SearchController: LoadMoreControlDelegate {
+    func loadMoreControl(didStartAnimating loadMoreControl: LoadMoreControl) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.currentPage += 1
+            self.makeAPICall()
+        }
     }
     
+    func loadMoreControl(didStopAnimating loadMoreControl: LoadMoreControl) {
+        
+    }
+}
+
+
+// dataSource, delegate
+extension SearchController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(dataSouce.count)
         return dataSouce.count
     }
     
@@ -100,6 +117,12 @@ class SearchController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: BookCell.identifier(), for: indexPath) as! BookCell
             cell.dataSource = dataSouce[indexPath.row]
             return cell
+        }
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if type == .detail {
+            loadMoreView.didScroll()
         }
     }
     
@@ -126,5 +149,22 @@ class SearchController: UITableViewController {
         bookDetailController.isbn13 = dataSouce[indexPath.row].isbn13
         navigationController?.pushViewController(bookDetailController, animated: true)
     }
+}
 
+
+extension SearchController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        currentPage = 1
+        type = .normal
+        let searchBar = searchController.searchBar
+        searchText = searchBar.text ?? ""
+        makeAPICall()
+    }
+}
+
+extension SearchController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        type = .detail
+        self.tableView.reloadData()
+    }
 }

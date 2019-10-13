@@ -71,14 +71,15 @@ private let searchCache = NSCache<NSString, Search>()
         
         let nsQuery: NSString = query as NSString
         
-        // Cached
-        if let booksFromCache = searchCache.object(forKey: nsQuery) {
+        // Cached only when page == 1
+        if page == 1, let booksFromCache = searchCache.object(forKey: nsQuery) {
             completion(.success(booksFromCache.books))
             return
         }
         // Not Cached
         let str = "\(query)/\(page)"
         let url = APIRequests.search(str).url
+        print(url)
         service.get(url: url) { result in
             switch result {
             case .success(let data):
@@ -131,8 +132,3 @@ enum APIRequests {
 enum APIError: Error {
     case noQuestions
 }
-
-// Only used for decoding
-//private struct Questions: Codable {
-//    let questions: [Question]
-//}

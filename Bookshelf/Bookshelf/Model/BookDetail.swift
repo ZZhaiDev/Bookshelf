@@ -28,15 +28,5 @@ import Foundation
     @objc let price: String
     @objc let image: String
     @objc let url: URL
-//    @objc let pdf: BookDetailPdf
 }
-
-//@objc final class BookDetailPdf: NSObject, Codable {
-//    @objc let freeEbook: String
-//
-//    enum CodingKeys: String, CodingKey {
-//        case freeEbook = "Free eBook"
-//    }
-//
-//}
 

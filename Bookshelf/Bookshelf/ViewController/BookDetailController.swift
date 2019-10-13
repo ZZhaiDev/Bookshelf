@@ -9,8 +9,8 @@
 import UIKit
 
 
-
-private let cellid = "cellid"
+private let webViewTakeNoteCellid = "webViewTakeNoteCellid"
+private let normalCellid = "normalCellid"
 
 class BookDetailController: UIViewController {
 
@@ -57,14 +57,15 @@ class BookDetailController: UIViewController {
         tView.rowHeight = UITableView.automaticDimension
         
         tView.parallaxHeader.view = bookHeader
-        tView.parallaxHeader.height = 300 - 84
-        tView.parallaxHeader.minimumHeight = 84
+        tView.parallaxHeader.height = 300 - zjNavigationBarHeight - zjStatusHeight
+        tView.parallaxHeader.minimumHeight = zjNavigationBarHeight + zjStatusHeight
         tView.parallaxHeader.mode = .topFill
         
         tView.backgroundColor = .white
         tView.delegate = self
         tView.dataSource = self
-        tView.register(BaseTableViewCell.self, forCellReuseIdentifier: cellid)
+        tView.register(BaseTableViewCell.self, forCellReuseIdentifier: webViewTakeNoteCellid)
+        tView.register(UITableViewCell.self, forCellReuseIdentifier: normalCellid)
         tView.register(UINib(nibName: "BookDetailDescriptionCell", bundle: nil), forCellReuseIdentifier: BookDetailDescriptionCell.identifier())
         return tView
     }()
@@ -94,10 +95,9 @@ class BookDetailController: UIViewController {
         super.viewWillDisappear(animated)
         normalNavigationBar()
     }
-
 }
 
-// setupUI
+
 extension BookDetailController {
     fileprivate func setupUI() {
         self.title = ""
@@ -127,9 +127,10 @@ extension BookDetailController {
     }
 }
 
+
 extension BookDetailController: UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.title = (scrollView.contentOffset.y > -84) ? "Book Detail" : ""
+        self.title = (scrollView.contentOffset.y > -(zjNavigationBarHeight+zjStatusHeight)) ? "Book Detail" : ""
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -139,7 +140,6 @@ extension BookDetailController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let pageSection = BookDetailSection(rawValue: section) else { return 0 }
         return pageSection.rowNumber()
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -150,7 +150,7 @@ extension BookDetailController: UITableViewDelegate, UITableViewDataSource {
             cell.dataSource = dataSource
             return cell
         case BookDetailSection.WebViewTakeNote:
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: webViewTakeNoteCellid, for: indexPath)
             cell.textLabel?.textColor = UIColor.white
             cell.accessoryType = .disclosureIndicator
             cell.selectionStyle = .none
@@ -166,7 +166,7 @@ extension BookDetailController: UITableViewDelegate, UITableViewDataSource {
             }
             return cell
         case .Other:
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: normalCellid, for: indexPath)
             cell.textLabel?.text = "test cell with index: \(indexPath.row)"
             return cell
         }
@@ -193,11 +193,7 @@ extension BookDetailController: UITableViewDelegate, UITableViewDataSource {
                 navigationController?.pushViewController(takeNoteController, animated: true)
             }
         }
-        
-        
-        
     }
-    
 }
 
 
@@ -206,8 +202,6 @@ extension BookDetailController: takeNoteDelegate {
         self.note = note
         tableView.reloadRows(at: [IndexPath(row: 1, section: 1)], with: .middle)
     }
-    
-    
 }
 
 

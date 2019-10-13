@@ -8,21 +8,19 @@
 
 import UIKit
 
-
-
 class NewController: UITableViewController {
     
     var dataSource = [Book]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "New Book"
         makeAPICall()
     }
-
 }
 
 
+// MARK: - APICall
 extension NewController {
     fileprivate func makeAPICall() {
         ChallengeAPI().getNewBook { (result) in
@@ -38,8 +36,7 @@ extension NewController {
 }
 
 
-
-
+// MARK: - dataSource, delegate
 extension NewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count

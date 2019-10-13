@@ -23,8 +23,6 @@ class BookDetailDescriptionCell: BaseTableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        
         priceButton.layer.cornerRadius = priceButton.frame.height/2
         priceButton.layer.masksToBounds = true
         priceButton.setTitleColor(UIColor.white, for: .normal)
