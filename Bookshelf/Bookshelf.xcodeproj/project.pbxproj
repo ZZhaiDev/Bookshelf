@@ -249,13 +249,13 @@
 		382D4F40235158C400DD7BFB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3823C8852352AC0D00B30BC3 /* CatchedImageView.swift */,
 				382D4F41235158D600DD7BFB /* BaseTableViewCell.swift */,
 				382D4F4323515CD600DD7BFB /* BookCell.swift */,
 				380B2920235181280096906C /* BookDetailHeader.swift */,
 				380B291E235181110096906C /* BookDetailHeader.xib */,
 				3823C873235232E600B30BC3 /* BookDetailDescriptionCell.swift */,
 				3823C874235232E600B30BC3 /* BookDetailDescriptionCell.xib */,
+				3823C8852352AC0D00B30BC3 /* CatchedImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

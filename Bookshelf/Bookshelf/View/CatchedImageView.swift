@@ -8,15 +8,15 @@
 
 import UIKit
 
-var imageCache = [String: UIImage]()
+private var imageCache = [String: UIImage]()
 
 class CatchedImageView: UIImageView {
     
     var lastURLUsedToLoadImage: String?
     
     func loadImage(urlString: String) {
-        lastURLUsedToLoadImage = urlString
         
+        lastURLUsedToLoadImage = urlString
         self.image = nil
         
         if let cachedImage = imageCache[urlString] {
@@ -32,20 +32,16 @@ class CatchedImageView: UIImageView {
                 return
             }
             
-            if url.absoluteString != self.lastURLUsedToLoadImage {
-                return
-            }
+            if url.absoluteString != self.lastURLUsedToLoadImage { return }
             
             guard let imageData = data else { return }
-            
             let photoImage = UIImage(data: imageData)
-            
             imageCache[url.absoluteString] = photoImage
             
             DispatchQueue.main.async {
                 self.image = photoImage
             }
             
-            }.resume()
+        }.resume()
     }
 }
