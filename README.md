@@ -1,6 +1,7 @@
 # Bookshelf
 
 ### Read Me
+* Finished by Sun Oct 13, 5:30 pm CT
 * Swift Version: 4.2
 * How to Run: Download and run, no third party libraries.
 
