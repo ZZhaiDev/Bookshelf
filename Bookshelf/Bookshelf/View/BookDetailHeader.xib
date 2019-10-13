@@ -52,7 +52,7 @@
                         <constraint firstItem="8RT-LS-0Qi" firstAttribute="width" secondItem="flI-n4-dpn" secondAttribute="width" id="vet-2k-pVV"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GmR-4h-3a3">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GmR-4h-3a3" customClass="CatchedImageView" customModule="Bookshelf" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="85" width="150" height="200"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="FNo-G7-R1U"/>

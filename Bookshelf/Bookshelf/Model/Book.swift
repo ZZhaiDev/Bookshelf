@@ -22,3 +22,11 @@ import Foundation
     @objc let image: URL
     @objc let url: URL
 }
+
+
+@objc final class Search: NSObject, Codable {
+    @objc let error: String
+    @objc let total: String
+    @objc let page: String
+    @objc let books: [Book]
+}

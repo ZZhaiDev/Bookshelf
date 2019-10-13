@@ -19,6 +19,8 @@
 		3823C8782352496300B30BC3 /* WebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823C8772352496300B30BC3 /* WebController.swift */; };
 		3823C8832352592900B30BC3 /* TakeNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823C8812352592900B30BC3 /* TakeNoteController.swift */; };
 		3823C8842352592900B30BC3 /* TakeNoteController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3823C8822352592900B30BC3 /* TakeNoteController.xib */; };
+		3823C8862352AC0D00B30BC3 /* CatchedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823C8852352AC0D00B30BC3 /* CatchedImageView.swift */; };
+		3823C8882352AE2100B30BC3 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3823C8872352AE2100B30BC3 /* SearchController.swift */; };
 		382D4EFA2351528800DD7BFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382D4EF92351528800DD7BFB /* AppDelegate.swift */; };
 		382D4EFC2351528800DD7BFB /* NewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382D4EFB2351528800DD7BFB /* NewController.swift */; };
 		382D4EFF2351528800DD7BFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 382D4EFD2351528800DD7BFB /* Main.storyboard */; };
@@ -71,6 +73,8 @@
 		3823C8772352496300B30BC3 /* WebController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebController.swift; sourceTree = "<group>"; };
 		3823C8812352592900B30BC3 /* TakeNoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeNoteController.swift; sourceTree = "<group>"; };
 		3823C8822352592900B30BC3 /* TakeNoteController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TakeNoteController.xib; sourceTree = "<group>"; };
+		3823C8852352AC0D00B30BC3 /* CatchedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatchedImageView.swift; sourceTree = "<group>"; };
+		3823C8872352AE2100B30BC3 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		382D4EF62351528800DD7BFB /* Bookshelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookshelf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		382D4EF92351528800DD7BFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		382D4EFB2351528800DD7BFB /* NewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewController.swift; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 				382D4F272351540D00DD7BFB /* New.storyboard */,
 				382D4EFB2351528800DD7BFB /* NewController.swift */,
 				382D4F2A2351542B00DD7BFB /* Search.storyboard */,
+				3823C8872352AE2100B30BC3 /* SearchController.swift */,
 				382D4F47235166CF00DD7BFB /* BookDetailController.swift */,
 				3823C8812352592900B30BC3 /* TakeNoteController.swift */,
 				3823C8822352592900B30BC3 /* TakeNoteController.xib */,
@@ -238,6 +243,7 @@
 		382D4F40235158C400DD7BFB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3823C8852352AC0D00B30BC3 /* CatchedImageView.swift */,
 				382D4F41235158D600DD7BFB /* BaseTableViewCell.swift */,
 				382D4F4323515CD600DD7BFB /* BookCell.swift */,
 				380B2920235181280096906C /* BookDetailHeader.swift */,
@@ -386,6 +392,7 @@
 			files = (
 				3823C875235232E600B30BC3 /* BookDetailDescriptionCell.swift in Sources */,
 				382D4F33235154B200DD7BFB /* Result.swift in Sources */,
+				3823C8862352AC0D00B30BC3 /* CatchedImageView.swift in Sources */,
 				382D4EFC2351528800DD7BFB /* NewController.swift in Sources */,
 				382D4F4423515CD600DD7BFB /* BookCell.swift in Sources */,
 				382D4F3A2351551A00DD7BFB /* UIImageExtensions.swift in Sources */,
@@ -402,6 +409,7 @@
 				3823C8832352592900B30BC3 /* TakeNoteController.swift in Sources */,
 				382D4F34235154B200DD7BFB /* Service.swift in Sources */,
 				382D4F42235158D600DD7BFB /* BaseTableViewCell.swift in Sources */,
+				3823C8882352AE2100B30BC3 /* SearchController.swift in Sources */,
 				3823C8782352496300B30BC3 /* WebController.swift in Sources */,
 				380B291D23517D550096906C /* UIScrollView+ParallaxHeader.swift in Sources */,
 				380B2921235181280096906C /* BookDetailHeader.swift in Sources */,

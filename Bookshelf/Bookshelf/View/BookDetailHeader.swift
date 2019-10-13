@@ -32,7 +32,7 @@ class BookDetailHeader: UIView {
     }
     
     @IBOutlet weak var bgImage: UIImageView!
-    @IBOutlet weak var bookImage: UIImageView!
+    @IBOutlet weak var bookImage: CatchedImageView!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookRating: UILabel!

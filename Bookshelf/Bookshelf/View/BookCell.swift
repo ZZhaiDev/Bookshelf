@@ -26,13 +26,18 @@ class BookCell: BaseTableViewCell {
                     }
                 }
             })
+//            bookImageView.loadImage(urlString: dataSource.image.absoluteString)
         }
     }
     
-    @IBOutlet weak var bookImageView: UIImageView!
+    @IBOutlet weak var bookImageView: CatchedImageView!
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookSubtitle: UILabel!
     @IBOutlet weak var bookPrice: UILabel!
+    
+    static func rowHeight() -> CGFloat {
+        return 150
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

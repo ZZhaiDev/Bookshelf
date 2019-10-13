@@ -25,7 +25,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="126"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LIZ-ZQ-TvC">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LIZ-ZQ-TvC" customClass="CatchedImageView" customModule="Bookshelf" customModuleProvider="target">
                                             <rect key="frame" x="16" y="11" width="83" height="104"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="LIZ-ZQ-TvC" secondAttribute="height" multiplier="80:100" id="sjJ-qH-DZ5"/>

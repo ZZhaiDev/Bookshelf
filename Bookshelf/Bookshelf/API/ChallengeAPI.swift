@@ -8,6 +8,8 @@
 
 import Foundation
 
+private let searchCache = NSCache<NSString, Search>()
+
 @objc final class ChallengeAPI: NSObject {
     let service: Service
 
@@ -63,6 +65,44 @@ import Foundation
             }
         }
     }
+    
+    
+    func getSearchResult(query: String, page: Int, _ completion: @escaping (Result<[Book]>) -> Void) {
+        
+        let nsQuery: NSString = query as NSString
+        
+        // Cached
+        if let booksFromCache = searchCache.object(forKey: nsQuery) {
+            completion(.success(booksFromCache.books))
+            return
+        }
+        // Not Cached
+        let str = "\(query)/\(page)"
+        let url = APIRequests.search(str).url
+        service.get(url: url) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let search: Search = try JSONDecoder().decode(Search.self, from: data)
+                    DispatchQueue.main.async {
+                        // cache when page is 1
+                        if page == 1 {
+                            searchCache.setObject(search, forKey: nsQuery)
+                        }
+                        completion(.success(search.books))
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completion(.error(error))
+                    }
+                }
+            case .error(let error):
+                DispatchQueue.main.async {
+                    completion(.error(error))
+                }
+            }
+        }
+    }
 }
 
 enum APIRequests {
@@ -70,6 +110,7 @@ enum APIRequests {
     static let base = "https://api.itbook.store/1.0/"
     case newBooks
     case bookDetail(String)
+    case search(String)
 
     var stringValue: String {
         switch self {
@@ -77,7 +118,9 @@ enum APIRequests {
             return APIRequests.base + "new"
         case .bookDetail(let isbn13):
             return APIRequests.base + "books/" + isbn13
-        }
+        case .search(let query):
+            return APIRequests.base + "search/" + query
+        } 
     }
 
     var url: URL {
